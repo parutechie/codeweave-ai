@@ -13,3 +13,6 @@ out/
 # OS files
 .DS_Store
 
+
+#vs code package
+*.vsix
