@@ -1,0 +1,233 @@
+# =========================================
+# Dependencies
+# =========================================
+node_modules/
+vendor/
+
+# =========================================
+# Build / Output
+# =========================================
+dist/
+build/
+out/
+release/
+debug/
+target/
+bin/
+obj/
+public/build/
+.next/
+.nuxt/
+.svelte-kit/
+.storybook/
+coverage/
+generated/
+
+# =========================================
+# Framework Generated
+# =========================================
+.flutter-plugins
+.flutter-plugins-dependencies
+.dart_tool/
+.pub/
+.pub-cache/
+.android/
+.ios/
+.gradle/
+.cxx/
+
+# =========================================
+# TypeScript / JavaScript
+# =========================================
+*.js.map
+*.d.ts
+*.generated.ts
+*.bundle.js
+*.chunk.js
+*.min.js
+*.min.css
+
+# =========================================
+# Python
+# =========================================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+.env/
+.env.*
+pip-wheel-metadata/
+.pytest_cache/
+.mypy_cache/
+
+# =========================================
+# Java / Kotlin
+# =========================================
+*.class
+*.jar
+*.war
+*.ear
+.gradle/
+.idea/
+
+# =========================================
+# C / C++
+# =========================================
+*.o
+*.so
+*.a
+*.dll
+*.exe
+*.out
+
+# =========================================
+# Rust
+# =========================================
+target/
+Cargo.lock
+
+# =========================================
+# Go
+# =========================================
+vendor/
+*.test
+
+# =========================================
+# Swift / Xcode
+# =========================================
+DerivedData/
+*.xcworkspace
+*.xcodeproj
+
+# =========================================
+# Logs
+# =========================================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# =========================================
+# Lock Files
+# =========================================
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+bun.lockb
+Cargo.lock
+
+# =========================================
+# Environment / Secrets
+# =========================================
+.env
+.env.local
+.env.production
+.env.development
+*.pem
+*.key
+*.crt
+secrets/
+credentials/
+
+# =========================================
+# Git / IDE
+# =========================================
+.git/
+.github/
+.gitlab/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# =========================================
+# Test / Fixtures
+# =========================================
+coverage/
+__tests__/fixtures/
+fixtures/
+mock/
+mocks/
+snapshots/
+*.snap
+
+# =========================================
+# Databases
+# =========================================
+*.sqlite
+*.db
+*.sqlite3
+
+# =========================================
+# Media / Binary Files
+# =========================================
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+*.webp
+*.mp4
+*.mov
+*.avi
+*.mp3
+*.wav
+*.zip
+*.tar
+*.gz
+*.7z
+*.rar
+*.pdf
+
+# =========================================
+# AI / ML
+# =========================================
+*.onnx
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+models/
+datasets/
+
+# =========================================
+# Temporary Files
+# =========================================
+tmp/
+temp/
+.cache/
+.cache-loader/
+.eslintcache
+.parcel-cache/
+
+# =========================================
+# Docker
+# =========================================
+docker-data/
+docker-cache/
+
+# =========================================
+# Terraform
+# =========================================
+.terraform/
+*.tfstate
+*.tfstate.backup
+
+# =========================================
+# Firebase / Supabase
+# =========================================
+.firebase/
+.supabase/
+
+# =========================================
+# Misc
+# =========================================
+*.bak
+*.tmp
+*.swp
+*.old
+*.backup
+*.gguf
+*.bin

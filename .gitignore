@@ -1,0 +1,15 @@
+# Node
+node_modules/
+
+# Compiled TypeScript
+out/
+
+# VS Code extension test runner
+.vscode-test/
+
+# CodeWeave vector index — regenerated automatically, never commit
+.codeweave-index/
+
+# OS files
+.DS_Store
+

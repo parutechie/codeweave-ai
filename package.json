@@ -1,0 +1,171 @@
+{
+  "name": "codeweave-ai",
+  "displayName": "CodeWeave AI",
+  "description": "Ask questions about your codebase using local Ollama AI — fully offline",
+  "version": "0.1.0",
+  "publisher": "parutechie",
+  "icon": "assets/codeweave_no_background.png",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other",
+    "AI"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "codeweave.index",
+        "title": "CodeWeave: Index Codebase",
+        "icon": "$(database)"
+      },
+      {
+        "command": "codeweave.clearIndex",
+        "title": "CodeWeave: Clear Index"
+      },
+      {
+        "command": "codeweave.status",
+        "title": "CodeWeave: Show Index Status"
+      },
+      {
+        "command": "codeweave.ask",
+        "title": "CodeWeave: Ask"
+      }
+    ],
+    "configuration": {
+      "title": "CodeWeave AI",
+      "properties": {
+        "codeweave.ollamaUrl": {
+          "type": "string",
+          "default": "http://localhost:11434",
+          "description": "URL where your Ollama server is running"
+        },
+        "codeweave.chatModel": {
+          "type": "string",
+          "default": "qwen2.5-coder:7b",
+          "description": "Ollama model used for answering questions. Try: codellama, llama3, mistral, deepseek-coder"
+        },
+        "codeweave.embedModel": {
+          "type": "string",
+          "default": "mxbai-embed-large",
+          "description": "Ollama model for embeddings. Default: mxbai-embed-large (1024 dims). WARNING: changing this requires clearing and re-indexing."
+        },
+        "codeweave.chunkSize": {
+          "type": "number",
+          "default": 30,
+          "description": "Number of lines per chunk when indexing files"
+        },
+        "codeweave.topK": {
+          "type": "number",
+          "default": 5,
+          "description": "How many code chunks to retrieve per question"
+        },
+        "codeweave.includeExtensions": {
+          "type": "array",
+          "default": [
+            ".ts",
+            ".tsx",
+            ".js",
+            ".jsx",
+            ".mjs",
+            ".cjs",
+            ".py",
+            ".go",
+            ".rs",
+            ".java",
+            ".cs",
+            ".cpp",
+            ".c",
+            ".h",
+            ".hpp",
+            ".rb",
+            ".php",
+            ".swift",
+            ".kt",
+            ".dart",
+            ".vue",
+            ".svelte",
+            ".astro",
+            ".md",
+            ".json",
+            ".yaml",
+            ".yml",
+            ".toml",
+            ".graphql",
+            ".proto",
+            ".prisma",
+            ".sql",
+            ".sh",
+            ".dockerfile"
+          ],
+          "description": "File types to include when indexing your codebase"
+        },
+        "codeweave.excludePaths": {
+          "type": "array",
+          "default": [
+            "node_modules",
+            ".git",
+            ".gitlab",
+            ".github",
+            ".svn",
+            "dist",
+            "build",
+            "out",
+            "coverage",
+            ".next",
+            ".nuxt",
+            ".svelte-kit",
+            ".venv",
+            "venv",
+            "env",
+            "__pycache__",
+            ".pytest_cache",
+            "site-packages",
+            "tmp",
+            "temp",
+            "logs",
+            ".codeweave-index"
+          ],
+          "description": "Folders to skip during indexing"
+        }
+      }
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "codeweave",
+          "title": "CodeWeave AI",
+          "icon": "assets/codeweave_no_background.svg"
+        }
+      ]
+    },
+    "views": {
+      "codeweave": [
+        {
+          "type": "webview",
+          "id": "codeweave.chatView",
+          "name": "Ask your codebase",
+          "icon": "$(comment-discussion)"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc --watch -p ./",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.3.0"
+  },
+  "dependencies": {
+    "ignore": "^7.0.5",
+    "vectordb": "^0.21.2"
+  }
+}
