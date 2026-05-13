@@ -79,41 +79,6 @@ Show me the folder structure
 
 ---
 
-## ⚙️ Configuration
-
-All settings are under `CodeWeave AI` in VS Code settings (`Cmd/Ctrl+,`):
-
-| Setting                       | Default                   | Description                                         |
-| ----------------------------- | ------------------------- | --------------------------------------------------- |
-| `codeweave.ollamaUrl`         | `http://localhost:11434`  | Ollama server URL                                   |
-| `codeweave.chatModel`         | `qwen2.5-coder:7b`        | Model for answering questions                       |
-| `codeweave.embedModel`        | `mxbai-embed-large`       | Model for embeddings (do not change after indexing) |
-| `codeweave.chunkSize`         | `30`                      | Lines per chunk when indexing                       |
-| `codeweave.topK`              | `5`                       | Code chunks retrieved per question                  |
-| `codeweave.includeExtensions` | `.ts, .py, .go, ...`      | File types to index                                 |
-| `codeweave.excludePaths`      | `node_modules, .git, ...` | Folders to skip                                     |
-
-### Alternative models
-
-**Chat models** (set `codeweave.chatModel`):
-
-```
-ollama pull codellama          # Meta's code model, good for C/C++/Python
-ollama pull deepseek-coder:6.7b  # Strong at code explanation
-ollama pull mistral            # Fast general-purpose model
-ollama pull llama3.2:3b        # Lightweight, good for smaller machines
-```
-
-**Embedding models** (set `codeweave.embedModel`):
-
-```
-ollama pull nomic-embed-text   # Lighter alternative to mxbai-embed-large
-```
-
-> ⚠️ Changing the embed model after indexing requires clearing and re-indexing (`CodeWeave: Clear Index`).
-
----
-
 ## 📁 Custom Ignore Rules
 
 Create a `.codeweaveIgnore` file in your project root (same syntax as `.gitignore`) to exclude specific files or folders:
@@ -125,17 +90,6 @@ secrets/
 legacy/
 migrations/
 ```
-
----
-
-## 🗂️ Commands
-
-| Command                        | Description                                             |
-| ------------------------------ | ------------------------------------------------------- |
-| `CodeWeave: Index Codebase`    | Scan and embed all files in the workspace               |
-| `CodeWeave: Clear Index`       | Delete the index and graph from disk                    |
-| `CodeWeave: Show Index Status` | Show chunk count and active models                      |
-| `CodeWeave: Ask`               | Ask a question via the command palette (output channel) |
 
 ---
 
@@ -188,35 +142,6 @@ Walker  ──►  Entity Extractor  ──►  Ollama Embeddings
 2. **Retrieval** — your question is embedded, then the closest code chunks are found by cosine similarity; broad questions use graph-first traversal; `@mentions` pin specific files or symbols
 3. **Generation** — retrieved chunks are assembled into a prompt and streamed through `qwen2.5-coder:7b`
 
----
-
-## 🖥️ System Requirements
-
-- VS Code `^1.85.0`
-- [Ollama](https://ollama.com) installed and running
-- `qwen2.5-coder:7b` (~4.7 GB) pulled
-- `mxbai-embed-large` (~670 MB) pulled
-- ~8 GB RAM recommended (4 GB minimum with smaller models)
-
----
-
-## 🐛 Troubleshooting
-
-**"Ollama is not running"**
-
-```bash
-ollama serve
-```
-
-**"Missing models"** — copy the pull command from the warning toast and run it in a terminal.
-
-**Answers seem wrong or incomplete** — try re-indexing. If files changed since the last index, the status bar will show a stale file warning.
-
-**Extension is slow on large repos** — reduce `codeweave.topK` to `3` and add large generated folders to `.codeweaveIgnore`.
-
-**LanceDB crashes on startup** — delete the `.codeweave-index` folder and re-index.
-
----
 
 ## 🤝 Contributing
 
