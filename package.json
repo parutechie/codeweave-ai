@@ -4,7 +4,7 @@
   "description": "Ask questions about your codebase using local Ollama AI — fully offline",
   "version": "0.1.0",
   "publisher": "CodeWeaveAI",
-  "icon": "assets/codeweave_no_background.png",
+  "icon": "assets/codeweave.png",
   "repository": {
     "type": "git",
     "url": "https://github.com/parutechie/codeweave-ai"
