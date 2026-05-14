@@ -2,7 +2,7 @@
   "name": "codeweave-ai",
   "displayName": "CodeWeave AI",
   "description": "Ask questions about your codebase using local Ollama AI — fully offline",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "publisher": "CodeWeaveAI",
   "icon": "assets/codeweave.png",
   "repository": {
@@ -160,11 +160,14 @@
       ]
     }
   },
-  "scripts": {
-    "compile": "tsc -p ./",
-    "watch": "tsc --watch -p ./",
-    "package": "vsce package"
-  },
+"scripts": {
+  "compile": "tsc -p ./",
+  "watch": "tsc --watch -p ./",
+  "package:win": "vsce package --target win32-x64",
+  "package:mac-intel": "vsce package --target darwin-x64",
+  "package:mac-arm": "vsce package --target darwin-arm64",
+  "package:linux": "vsce package --target linux-x64"
+},
   "devDependencies": {
     "@types/node": "^20.0.0",
     "@types/vscode": "^1.85.0",
