@@ -2,7 +2,7 @@
   "name": "codeweave-ai",
   "displayName": "CodeWeave AI",
   "description": "Ask questions about your codebase using local Ollama AI — fully offline",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "CodeWeaveAI",
   "icon": "assets/codeweave.png",
   "repository": {
